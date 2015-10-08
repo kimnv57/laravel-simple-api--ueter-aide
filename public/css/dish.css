@@ -1,0 +1,78 @@
+
+ @font-face{
+ 	font-family: 'myFont';
+ 	src: url(../fonts/RixLoveFool.ttf);
+ }
+
+.mymenu{
+	position: absolute; 
+	width: 80%; 
+	height: 450px; 
+	top: 5%; 
+	left: 15%;
+}
+
+.menufood{
+	width: 88%;
+	font-family: verdana; 
+	font-weight: normal; 
+	position: absolute; 
+	top: 0px; 
+	left: 0px; 
+	color: rgb(255, 255, 255); 
+	line-height: 45px; 
+	font-size: 15px; 
+	padding-left: 10px;
+}
+
+
+
+.menudish img{
+	width: 30px;
+}
+
+.img_menu{
+	height: 626px !important;
+}
+
+.textfood h5{
+	text-align: center;
+	font-size: 20px;
+	font-style: bold;
+	color: #f89521;
+}
+
+.date h5{
+	float: left;
+	font-size: 18px;
+}
+
+.calendar_menu input{
+	color: #000;
+}
+
+.calendar_menu{
+	float: right;
+}
+
+.buttonregister, .buttonregister:hover{
+	background-color: #f89521;
+  border: solid 0px;
+  border-radius: 3px;
+  color: #fff;
+  float: right;
+}
+
+.mycontactmenu{
+	text-align: center;
+	margin-top: 10%;
+}
+
+.mycontactmenu h3{
+	color: #fff;
+	font-style: bold;
+}
+
+.mycontactmenu h4{
+	color: #000;
+}

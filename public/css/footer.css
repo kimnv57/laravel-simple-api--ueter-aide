@@ -1,0 +1,68 @@
+.footer {
+  color: #656565;
+  font-family: 'QuattrocentoSans';
+  background-color: #f5f5f5;
+
+}
+
+.foot{
+  margin-top: 30px;
+  padding: 0 39px;
+  position: relative;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+.inf{
+  padding-top: 35px;
+}
+/*----------------------*/
+#mycol{
+  padding-left: 2px;
+  width: 80px;
+}
+#connect {
+  float: right;
+  margin-right: -280px;
+}
+
+#connect a.twitter {
+  background-position: -30px -28px;
+}
+
+#connect a {
+  background: url(../images/icons.png) no-repeat;
+  display: inline-block;
+  height: 18px;
+  width: 20px;
+  margin-left: 12px;
+}
+
+#connect a.facebook {
+  background-position: -30px 0;
+}
+
+#connect a.googleplus {
+  background-position: -30px -56px;
+}
+
+#connect a.vimeo {
+  background-position: -30px -84px;
+}
+
+#footer a {
+  color: #7a7257;
+  font-size: 12px;
+  letter-spacing: 1px;
+  line-height: 20px;
+  margin: 0 0 12px;
+}
+
+.lich h5{
+  font-size: 20px;
+  text-align: center;
+}
+
+.table-img{
+  margin-top: 0px;
+}

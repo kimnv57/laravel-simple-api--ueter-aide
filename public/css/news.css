@@ -1,0 +1,110 @@
+#bodyNews ul {
+  list-style: none;
+  border-bottom: 1px solid #fbebbf;
+  margin: 0;
+  padding: 0;
+}
+
+#bodyNews ul li {
+  display: inline-block;
+  width: 100%;
+  padding: 24px 30px;
+}
+
+#bodyNews span.time {
+  float: right;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 3px;
+  margin-right: 15px;
+}
+
+#bodyNews h2 {
+  color: #f89521;
+  display: inline-block;
+  margin: 0;
+  font-size: 25px;
+  margin-bottom: 5px;
+  margin-left: 20px;
+}
+
+#bodyNews p {
+  font-size: 15px;
+  text-align: justify;
+  margin: 0;
+  padding-bottom: 24px;
+  text-shadow: 1px 1px #fff9eb;
+}
+
+.more {
+  color: #f9a842;
+  text-decoration: none;
+}
+
+#bodyNews div.pages {
+  padding-right: 20px;
+  padding-top: 24px;
+  text-align: right;
+}
+
+#bodyNews div.pages a {
+  color: #000;
+  display: inline-block;
+  font-size: 14px;
+  font-style: italic;
+  margin: 0 5px;
+}
+/*-----------------------------------------*/
+.newscaptain{
+  height: 200px;
+  width: 100%;
+}
+
+.capstain{
+  background: rgba(0, 0, 0, 0.6);
+  margin-top: -140px;
+  text-align: center;
+  margin-bottom: 120px;
+}
+  
+.capstain h1{
+  color: #f89521;
+  font-size: 45px;
+  text-transform: uppercase;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.mygrid{
+  margin-bottom: 20px;
+}
+
+.foodnews .images img{
+  width: 100%;
+}
+
+.inffood h5{
+  font-size: 15px;
+   text-transform: uppercase;
+   text-align: center;
+  font-style: bold;
+}
+
+.inffood h6{
+  font-size: 14px;
+   text-align: center;
+}
+
+.inffood .buttonmore{
+  background-color: #f89521;
+  margin-bottom: -60px;
+  border: solid 0px;
+  margin-left: 30%;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.foodnews{
+  box-shadow: 0px 5px 1px #ccc;
+  border-radius: 0px;
+}

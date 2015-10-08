@@ -1,0 +1,249 @@
+/*******chung****/
+*{
+	margin: 0px;
+	padding: 0px;
+	
+}
+html {
+  position: relative;
+  min-height: 100%; 
+}
+body {
+  /* Margin bottom by footer height */
+  font: 14px/18px  Arial, Helvetica, sans-serif;
+  margin-bottom: 290px !important; 
+  background: #f9e19f url(../images/bg-body.png) repeat-x left top;
+}
+
+#header{
+  width: 960px;
+  background: url(../images/bg-body.png) no-repeat left top;
+  position: relative;
+  margin: 0 auto;
+}
+
+#logo{
+  margin-top: 20px;
+  background: url(../images/logo.png);
+  width: 160px;
+  height: 157px;
+}
+
+#articles {
+  /* background: url(../images/bg-body2.png) repeat-x left top; */
+  width: 100%;
+  min-height: 540px;
+  padding: 24px 0 0;
+  position: absolute;
+  left: 0;
+}
+
+.hor_separator {
+    width: 100%;
+    height: 40px;
+}
+  /***ket thuc chung****/
+  /********phan thong ke********/tom-color: #bce8f1; 
+  }
+  .col-xs-3 {
+  width: 25%; }
+  .col-xs-3 { 
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.col-xs-3{
+  float: left; }
+  .fa-3x {
+  font-size: 3em; }
+  .panel-info {
+  border-color: #3db5d8; }
+  .panel-info > .panel-heading {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #3db5d8; }
+    .panel-info > .panel-heading + .panel-collapse > .panel-body {
+      border-top-color: #3db5d8; }
+    .panel-info > .panel-heading .badge {
+      color: #5bc0de;
+      background-color: #fff; }
+  .panel-info > .panel-footer + .panel-collapse > .panel-body {
+    border-bottom-color: #3db5d8; }
+   /********ket thuc phan thong ke********/ 
+
+  /*********day la phan tieu de nav**********/
+
+/*********ket thuc phan tieu de nav**********/
+
+
+/*******day la phan footer thong tin*******/
+.bottom_block {
+  position: absolute;
+  bottom: 210px;
+  /* Set the fixed height of the footer here */
+  height: 80px;
+  width: 86%;
+
+}
+.bottom_block h3 {
+  padding-top: 39px;
+  margin-bottom: 25px;
+}
+
+.socials {
+  overflow: hidden;
+}
+
+.bottom_block nav {
+  padding-top: 27px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #504f4f;
+}
+
+
+
+.bottom_block nav li {
+  float: left;
+}
+
+
+.bottom_block nav li+li {
+  margin-left: 19px;
+}
+.socials {
+  overflow: hidden;
+}
+
+.bottom_block p {
+
+  margin-top: -5px;
+}
+
+.bottom_block nav li.current {
+  color: #699440;
+}
+.socials a:hover {
+  opacity: 0.5;
+}
+
+.socials a:first-child {
+  margin-left: 0;
+}
+
+.socials a:first-child+a {
+  background: url(../images/socials.png) ;
+}
+
+.socials a:first-child+a+a {
+  background: url(../images/socials.png) right 0 no-repeat;
+}
+
+#newsletter {
+  position: relative;
+}
+
+
+
+#newsletter label {
+  display: block;
+  position: relative;
+  width: 313px;
+  float: left;
+  padding-top: 1px;
+  z-index: 1;
+}
+
+#newsletter input {
+
+  border: 1px solid #d9d8d8;
+  float: left;
+  color: #a8a8a8;
+  width: 220px;
+  height: 30px;
+  font: 12px/18px  Arial, Helvetica, sans-serif;
+  padding: 6px 10px;
+  box-shadow: none !important;
+  -moz-box-sizing: border-box;
+ -webkit-box-sizing: border-box;
+ -o-box-sizing: border-box;
+ box-sizing: border-box;
+}
+
+#newsletter a.btn {
+  float: right;
+  text-transform: capitalize;
+  font-size: 13px;
+  margin-top: 0;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+#newsletter .error, #form1 .empty {   
+  height:0px;
+  top: 35px;
+  width: 100%;
+  left: 4px;
+  font-size: 10px;
+  line-height: 13px;
+  display: block;
+  overflow: hidden;
+  z-index: 999;
+  color: #ff0000;
+    -webkit-transition:  0.3s ease-out; 
+    -o-transition: all 0.3s ease-out; 
+    transition: all 0.3s ease-out; 
+    position: absolute;
+  }
+
+#newsletter label.invalid .error {
+  /*display: block;*/
+  height:40px;
+
+}
+
+#newsletter .success {
+  width: 220px;
+  z-index: 999;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box; 
+  display: none;  
+  top: 0px;
+  border: 1px solid #d9d8d8;
+  background: #fff;
+  left: 0px;
+  font-size: 12px;
+ color: #a7a7a7;
+  overflow: hidden;
+  padding: 10px;
+  -webkit-transition:  0.3s ease-out; 
+  -o-transition: all 0.3s ease-out; 
+  transition: all 0.3s ease-out; 
+  position: absolute;
+}
+
+
+/**************ket thuc phan footer thong tin*****************/
+
+
+/*************day la phan footer design cuoi trang**********/
+#thao-design {
+position: absolute;
+  width: 100%;
+  bottom: 0;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  margin-bottom: 6px;
+  background-color: grey;
+}
+
+#thao-design > .contain > .name {
+  text-align: center;
+  color: #fff;
+}
+
+/*************ket thuc phan footer design cuoi trang**********/
+
+

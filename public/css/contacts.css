@@ -1,0 +1,14 @@
+#map{
+  	margin-top: 10px;
+  	color: #848383;
+    float: right;
+}
+
+iframe .mymap{
+    border: solid 2px;
+    border-color: #f89521;
+}
+
+.contact{
+  margin-top: 20px;
+}
