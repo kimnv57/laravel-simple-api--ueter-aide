@@ -1,0 +1,27 @@
+<?php $__env->startSection('styles'); ?>
+  <link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/metro-bootstrap.css')); ?>">
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+<div class="row">
+  <div class="col-md-8">
+  </div>
+  <div class="col-md-4">
+    <div class="metro">
+    <div class="calendar"></div>
+    </div>
+  </div>
+</div>
+ <?php $__env->stopSection(); ?>
+
+
+ <?php $__env->startSection('scripts'); ?>
+ <script type="text/javascript"  src="<?php echo e(URL::to('js/jquery.min.js')); ?>"></script>
+ <script type="text/javascript"  src="<?php echo e(URL::to('js/jquery.widget.min.js')); ?>"></script>
+ <script type="text/javascript"  src="<?php echo e(URL::to('js/metro.min.js')); ?>"></script>
+ <script type="text/javascript"  src="<?php echo e(URL::to('js/metro-global.js')); ?>"></script>
+ <script type="text/javascript"  src="<?php echo e(URL::to('js/metro-locale.js')); ?>"></script>
+ <script type="text/javascript"  src="<?php echo e(URL::to('js/metro-calendar.js')); ?>"></script>
+  <script type="text/javascript"  src="<?php echo e(URL::to('js/new.js')); ?>"></script>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

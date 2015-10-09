@@ -1,0 +1,73 @@
+<?php $__env->startSection('content'); ?>
+<ul class="nav nav-tabs">
+	<li class="active"><a href="#tab-general" data-toggle="tab"><?php echo e(Lang::get('admin/modal.general')); ?></a></li>
+</ul>
+
+
+<?php echo Form::open(['method'=>'POST','files' => true]); ?>
+
+	<div class="tab-content">
+		<div class="tab-pane active" id="tab-general">
+			<div class="col-md-12">
+				<div class="form-group">
+					<label class="col-md-2 control-label" for="name"><?php echo e(Lang::get('admin/dishes.name')); ?></label>
+					<div class="col-md-10">
+						<?php echo e(Input::old('name', isset($dish) ? $dish->name : null)); ?>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-12">
+				<div class="form-group">
+					<label class="col-md-2 control-label" for="image"><?php echo e(Lang::get('admin/dishes.price')); ?></label>
+					<div class="col-md-10">
+						<input class="form-control" tabindex="1"
+							placeholder="<?php echo e(Lang::get('admin/dishes.price')); ?>" type="text"
+							name="price" id="price"
+							value="<?php echo e(Input::old('price',isset($dish) ? $dish->price : null)); ?>">
+							<?php echo $errors->first('price', '<label class="control-label"
+							for="email">:message</label>'); ?>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<label class="col-md-2 control-label" for="name"><?php echo e(Lang::get('admin/dishes.oldimage')); ?></label>
+						<div class="col-md-10">
+							<img src="<?php echo e(URL::to('appfiles/dishimages/thumbs/' . $dish->image)); ?>">
+						</div>
+			</div>
+			<div class="col-md-12">
+				<div class="form-group">
+					<label class="col-md-2 control-label" for="name"><?php echo e(Lang::get('admin/dishes.image')); ?></label>
+					<div class="col-md-10">
+						<input name="image"
+						type="file" class="uploader" id="image" value="image" />
+						<?php echo $errors->first('price', '<label class="control-label"
+							for="email">:message</label>'); ?>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="form-group">
+		<div class="col-md-12">
+			<button type="reset" class="btn btn-sm btn-default">
+				<span class="glyphicon glyphicon-remove-circle"></span> <?php echo e(Lang::get("admin/modal.reset")); ?>
+
+			</button>
+			<button type="submit" class="btn btn-sm btn-success">
+				<span class="glyphicon glyphicon-ok-circle"></span> <?php echo e(Lang::get("admin/modal.edit")); ?>
+
+			</button>
+		</div>
+	</div>
+	
+<?php echo Form::close(); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin/model', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

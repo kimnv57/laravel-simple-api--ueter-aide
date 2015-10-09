@@ -1,0 +1,52 @@
+<?php /* Web site Title */ ?>
+<?php $__env->startSection('title'); ?> <?php echo e(Lang::get("admin/users.users")); ?> :: @parent
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('styles'); ?>
+    <!-- css for metro-calendar -->
+  <link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/metro-bootstrap.css')); ?>">
+   <link href="<?php echo e(URL::to('css/iconFont.css')); ?>" rel="stylesheet">
+<?php $__env->stopSection(); ?>
+
+<?php /* Content */ ?>
+<?php $__env->startSection('content'); ?>
+    <div class="page-header">
+        <h3>
+            Thực đơn
+            <div class="pull-right">
+                <div class="pull-right">
+                    <a href="<?php echo e(URL::to('admin/menus/create')); ?>"
+                       class="btn btn-sm  btn-primary iframe"><span
+                                class="glyphicon glyphicon-plus-sign"></span> <?php echo e(Lang::get("admin/modal.new")); ?></a>
+                </div>
+            </div>
+        </h3>
+    </div>
+    <div class="row">
+        <!-- calendar -->
+        <div class="col-md-3">
+            <div class="metro">
+                <div class="calendar"></div>
+            </div>
+        </div>
+        <!-- list food -->
+        <div class="col-md-9">
+            <div class="menu"></div>
+        </div>
+    </div>
+
+<?php $__env->stopSection(); ?>
+
+<?php /* Scripts */ ?>
+<?php $__env->startSection('scripts'); ?>
+    @parent
+    <!-- js for calendar -->
+ <script type="text/javascript"  src="<?php echo e(URL::to('js/jquery.widget.min.js')); ?>"></script>
+ <script type="text/javascript"  src="<?php echo e(URL::to('js/metro.min.js')); ?>"></script>
+ <script type="text/javascript"  src="<?php echo e(URL::to('js/metro-global.js')); ?>"></script>
+ <script type="text/javascript"  src="<?php echo e(URL::to('js/metro-locale.js')); ?>"></script>
+ <script type="text/javascript"  src="<?php echo e(URL::to('js/metro-calendar.js')); ?>"></script>
+  <script type="text/javascript"  src="<?php echo e(URL::to('js/calendaradmin.js')); ?>"></script>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('backend', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

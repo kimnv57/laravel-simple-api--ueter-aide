@@ -1,0 +1,191 @@
+<?php $__env->startSection('styles'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+
+
+<div class="slider">
+ 	<?php echo $__env->make('partials.slideshow', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+</div>
+<div class="container">
+		<div class="row myrow container">
+			<div class=" images1 col-md-4 col-sm-6">
+				<img src="images/01.jpg" class="img-responsive">
+				<div class="row" id="view">
+				<div class="cs-carousel-header-feature col-md-12">
+					<h3>
+						<a href="#">Nhân viên</a>
+					</h3>
+					<h4>
+						Cẩn thận - Chu đáo
+					</h4>
+				</div>
+				</div>
+                <div class="row">
+	                <div class="cs-carousel-body1 col-md-12">
+	                    <div class="cs-carousel-post-icon">
+							<div class="row">
+		                    	<div class="col-md-4 col-xs-4 col-sm-4"></div>
+		                    	<div class="col-md-4 col-xs-4 col-sm-4">
+		                    		<img src="images/staff.png" class="img-responsive">
+		                    	</div>
+		                    	<div class="col-md-4 col-xs-4 col-sm-4"></div>
+		                	</div>                    
+		                </div>
+	                    <div class="cs-carousel-inner">
+	                    <a href="<?php echo e(URL::to('news/'.$nhanvien->id)); ?>">
+	                        <div class="cs-carousel-post-meta">
+	                            <div class="cs-carousel-post-title">
+	                                <h3> <?php echo e($nhanvien->title); ?></h3>
+	                            </div>
+	                     	</div>
+	                        <div class="cs-carousel-post-description">
+	                            <p><?php echo e(substr($nhanvien->content, 0, 50)); ?> ...</p>
+	                        </div>
+	                    </a>
+	                    </div>
+	                </div>
+                </div>
+			</div>
+			<div class=" images2 col-md-4 col-sm-6">
+				<img src="images/02.jpg" class="img-responsive ">
+				<div class="row" id="view">
+				<div class="cs-carousel-header-feature col-md-12">
+					<h3>
+						<a href="#">Ưu đãi</a>
+					</h3>
+					<h4>
+						Hấp dẫn cho công nhân
+					</h4>
+				</div>
+				</div>
+                <div class="row">
+	                <div class="cs-carousel-body2 col-md-12">
+	                    <div class="cs-carousel-post-icon">
+							<div class="row">
+		                    	<div class="col-md-4 col-xs-4 col-sm-4"></div>
+		                    	<div class="col-md-4 col-xs-4 col-sm-4">
+		                    		<img src="images/sale.png">
+		                    	</div>
+		                    	<div class="col-md-4 col-xs-4 col-sm-4"></div>
+		                	</div>                    
+		                </div>
+	                    <div class="cs-carousel-inner">
+	                     <a href="<?php echo e(URL::to('news/'.$uudai->id)); ?>">
+	                        <div class="cs-carousel-post-meta">
+	                            <div class="cs-carousel-post-title">
+	                                <h3><?php echo e($uudai->title); ?></h3>
+	                            </div>
+	                     	</div>
+	                        <div class="cs-carousel-post-description">
+	                            <p>: <?php echo e(substr($uudai->content, 0, 55)); ?> ...</p>
+	                        </div>
+	                    </a>
+	                    </div>
+	                </div>
+                </div>
+			</div>
+			<div class=" images3 col-md-4 col-sm-0">
+				<img src="images/03.jpg" class="img-responsive">
+				<div class="row" id="view">
+				<div class="cs-carousel-header-feature col-md-12">
+					<h3>
+						<a href="#">Thực phẩm</a>
+					</h3>
+					<h4>
+						Tươi - Sạch - Bổ
+					</h4>
+				</div>
+				</div>
+                <div class="row">
+	                <div class="cs-carousel-body3 col-md-12">
+	                    <div class="cs-carousel-post-icon">
+							<div class="row">
+		                    	<div class="col-md-4 col-xs-4 col-sm-4"></div>
+		                    	<div class="col-md-4 col-xs-4 col-sm-4">
+		                    		<img src="images/food.png">
+		                    	</div>
+		                    	<div class="col-md-4 col-xs-4 col-sm-4"></div>
+		                	</div>                    
+		                </div>
+	                    <div class="cs-carousel-inner">
+	                    <a href="<?php echo e(URL::to('news/'.$thucpham->id)); ?>">
+	                        <div class="cs-carousel-post-meta">
+	                            <div class="cs-carousel-post-title">
+	                                <h3><?php echo e($thucpham->title); ?></h3>
+	                            </div>
+	                     	</div>
+	                        <div class="cs-carousel-post-description">
+	                            <p><?php echo e(substr($thucpham->content, 0, 50)); ?> ...</p>
+	                        </div>
+	                    </a>
+	                    </div>
+	                </div>
+                </div>
+			</div>
+		</div>  
+		<div class="row myrow container">
+			<h3>Món ăn mới</h3>
+			<hr>
+			<button type="button" class="btn btn-default buttonold">Cũ hơn</button>
+		</div>
+		<div class="row myrow myrowfood container">
+			<div class="food col-md-3 col-sm-6 col-xs-12 active">
+				<div class="panel panel-default mypanel">
+  					<div class="myfood panel-heading">
+  						<img src="images/img3.png" class="img-responsive">
+  					</div>
+  					<div class="panel-body mypanelbody">
+    					<h5>Sườn xào chua ngọt</h5>
+    					<hr>
+    					<h6>Ngon miệng, dễ ăn</h6>
+    					<button type="button" class="btn btn-default buttonmore">Xem thêm</button>
+  					</div>
+				</div>
+			</div>
+			<div class="food col-md-3 col-sm-6 col-xs-12">
+				<div class="panel panel-default mypanel">
+  					<div class="myfood panel-heading">
+  						<img src="images/img4.jpg" class="img-responsive">
+  					</div>
+  					<div class="panel-body mypanelbody">
+    					<h5>Cá nướng</h5>
+    					<hr>
+    					<h6>Hương vị thơm ngon, lạ miệng</h6>
+    					<button type="button" class="btn btn-default buttonmore">Xem thêm</button>
+  					</div>
+				</div>
+			</div>
+			<div class="food col-md-3 col-sm-6 col-xs-12">
+				<div class="panel panel-default mypanel">
+  					<div class="myfood panel-heading">
+  						<img src="images/img5.jpg" class="img-responsive">
+  					</div>
+  					<div class="panel-body mypanelbody">
+    					<h5>Bít tết</h5>
+    					<hr>
+    					<h6>Ngon bổ</h6>
+    					<button type="button" class="btn btn-default buttonmore">Xem thêm</button>
+  					</div>
+				</div>
+			</div>
+			<div class="food col-md-3 col-sm-6 col-xs-12">
+				<div class="panel panel-default mypanel">
+  					<div class="myfood panel-heading">
+  						<img src="images/img6.jpg" class="img-responsive">
+  					</div>
+  					<div class="panel-body mypanelbody">
+    					<h5>Trứng chiên</h5>
+    					<hr>
+    					<h6>Ngon bổ - Hấp dẫn</h6>
+    					<button type="button" class="btn btn-default buttonmore">Xem thêm</button>
+  					</div>
+				</div>
+			</div>
+		</div>
+</div>
+<?php $__env->stopSection(); ?>
+
+ <?php $__env->startSection('scripts'); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,26 @@
+
+
+<div class="footer">
+  <div class="foot container">
+    <div class="row">
+        <div class="inf col-md-4">
+           <div>
+             <img src="images/logo.png">
+             <h4>Địa chỉ:<h4>
+             <h5>Số 1 Phạm Văn Đồng - Cầu giấy - Hà Nôi</h5>
+             <h4>SĐT: </h4>
+             <h5>123456789</h5>
+           </div>
+        </div>
+        <div class="col-md-4 lich">
+          <h5>Lịch thực đơn</h5>
+          <div class="metro">
+            <div class="calendar"></div>
+          </div>
+        </div>
+        <div class="col-md-4">
+                
+        </div>
+    </div>
+  </div>  
+</div>

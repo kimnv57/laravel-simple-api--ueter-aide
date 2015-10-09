@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+     <title><?php $__env->startSection('title'); ?> ueter aide <?php echo $__env->yieldSection(); ?></title>
+     <link rel="icon" href="images/favicon.ico">
+     <link rel="shortcut icon" href="images/favicon.ico" />
+     <link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/bootstrap.min.css')); ?>">
+     <link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/mystyle.css')); ?>">
+     
+
+
+     <!-- <link href="<?php echo e(asset('/css/all.css')); ?>" rel="stylesheet"> -->
+     <?php echo $__env->yieldContent('styles'); ?>
+     
+
+     </head>
+  <body>
+  <?php echo $__env->make('partials.nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+  <div>
+  <div class="container">
+    <?php echo $__env->yieldContent('content'); ?>
+  </div>
+    
+  </div>
+  <div class="my_footer">
+      <?php echo $__env->make('partials.footer-design', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+  </div>
+  </body>
+  
+  
+<script src="<?php echo e(URL::to('/js/jquery-1.9.1.min.js')); ?>"></script>
+<script src="<?php echo e(URL::to('/js/bootstrap.min.js')); ?>"></script>
+<script>
+$(function(){
+
+    $('#loginform').submit(function(event) {
+      event.preventDefault();
+      var form = $(this);
+      $.ajax({
+          type : form.attr('method'),
+          url : form.attr('action'),
+          data : form.serialize()
+          }).success(function() {
+            window.parent.location.replace("/");
+        })
+          .fail(function(jqXHR, textStatus, errorThrown) {
+              // Optionally alert the user of an error here...
+              var textResponse = jqXHR.responseText;
+              var alertText = "";
+              var jsonResponse = jQuery.parseJSON(textResponse);
+              $.each(jsonResponse, function(n, elem) {
+                  alertText = alertText + elem + "<br>";
+              });
+              $(".loi").html('');
+              $("<div>").attr("class","alert").attr("class","alert-danger").appendTo($(".loi"));
+              $("<strong>").html("One of the following conditions is not met:").appendTo($(".alert-danger"));
+              $("<br>").appendTo($(".alert-danger"));
+              $("<strong>").html(alertText).appendTo($(".alert-danger"));
+          });
+        });
+});
+</script>
+<?php echo $__env->yieldContent('scripts'); ?>
+
+
+</html>

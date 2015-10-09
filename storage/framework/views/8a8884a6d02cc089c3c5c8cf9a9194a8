@@ -1,0 +1,28 @@
+<?php $__env->startSection('styles'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('firstcontent'); ?>
+ <?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+
+<div id="about">
+	<ul>
+		<li>
+			<img src="images/01.png">
+		</li>
+		<li>
+			<img src="images/02.png">
+		</li>
+		<li>
+			<img src="images/02.png">
+		</li>
+	</ul>
+</div>
+<h2>this is about</h2>
+ <?php $__env->stopSection(); ?>
+
+ <?php $__env->startSection('scripts'); ?>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

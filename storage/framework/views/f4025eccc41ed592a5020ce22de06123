@@ -1,0 +1,66 @@
+<div class="input-group" >
+    <input type="text" class="form-control" id="myInputSearchDash" placeholder="Search...">
+      <span class="input-group-btn">
+        <button class="btn btn-default squarebutton" type="button">
+            <i class="glyphicon glyphicon-search"></i>
+        </button>
+      </span>
+</div>
+
+
+<ul class="nav nav-pills nav-stacked" id="menu">
+    <li <?php echo e((Request::is('admin/dashboard') ? ' class=active' : '')); ?>>
+        <a href="<?php echo e(URL::to('admin/dashboard')); ?>"
+                >
+            <i class="fa fa-dashboard fa-fw"></i><span class="hidden-sm text">
+Dashboard</span>
+        </a>
+    </li>
+    <li <?php echo e((Request::is('admin/language*') ? ' class=active' : '')); ?>>
+        <a href="#"
+                >
+            <i class="glyphicon glyphicon-flag"></i><span
+                    class="hidden-sm text">Ngôn Ngữ</span>
+        </a>
+    </li>
+
+    <li <?php echo e((Request::is('admin/dishes*') ? ' class=active' : '')); ?>>
+        <a href="<?php echo e(URL::to('admin/dishes')); ?>"
+                >
+            <i class="glyphicon glyphicon-flag"></i><span
+                    class="hidden-sm text"> Món Ăn</span>
+        </a>
+    </li>
+    <li <?php echo e((Request::is('admin/menus*') ? ' class=active' : '')); ?>>
+        <a href="<?php echo e(URL::to('admin/menus')); ?>"
+                >
+            <i class="glyphicon glyphicon-flag"></i><span
+                    class="hidden-sm text"> Thực Đơn</span>
+        </a>
+    </li>
+    
+    
+    <li <?php echo e((Request::is('admin/users*') ? ' class=active' : '')); ?> >
+        <a href="<?php echo e(URL::to('admin/users')); ?>"
+                >
+            <i class="glyphicon glyphicon-user"></i><span
+                    class="hidden-sm text"> Người dùng</span>
+        </a>
+    </li>
+
+    <li <?php echo e((Request::is('admin/news*') ? ' class=active' : '')); ?> >
+        <a href="<?php echo e(URL::to('admin/news')); ?>"
+                >
+            <i class="glyphicon glyphicon-user"></i><span
+                    class="hidden-sm text"> Tin Tức</span>
+        </a>
+    </li>
+
+    <li  <?php echo e((Request::is('admin/roles*') ? ' class=active' : '')); ?>>
+        <a href="#"
+                >
+            <i class="glyphicon glyphicon-tasks"></i><span
+                    class="hidden-sm text"> Chức vụ</span>
+        </a>
+    </li>
+</ul>

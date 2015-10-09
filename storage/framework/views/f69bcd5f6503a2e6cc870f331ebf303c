@@ -1,0 +1,50 @@
+<?php $__env->startSection('styles'); ?>
+<?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('content'); ?>
+<div>
+	<img src="images/news.png" class="newscaptain">
+	<div class="capstain">
+		<h1>Tin tức - Sự kiện</h1>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+
+
+		<div class="col-md-8" id="bodyNews">
+
+
+			<?php foreach($news as $new): ?>
+				<div class="row mygrid">
+					<span class="time"><?php echo e($new->created_at); ?></span>
+					<h2><?php echo e($new->title); ?></h2> <br>
+					<div class="col-md-3">
+						<a href="<?php echo e(URL::to('news/'. $new->id)); ?>"><img src="<?php echo e(URL::to('appfiles/newsimages/thumbs/'. $new->image)); ?>" class="img-responsive"></a>
+					</div>
+					<div class="col-md-9">
+						<p>
+							<?php echo e(substr($new->content,0,350)); ?>...
+						</p>
+						<a href="<?php echo e(URL::to('news/'. $new->id)); ?>" class="more">Read More...</a>
+					</div>
+					
+				</div>
+			<?php endforeach; ?>
+			<div class="pages">
+				<a href="">Prev</a> <a href="">1</a> <a href="">2</a> <a href="">3</a> <a href="">4</a> <a href="">5</a> <a href="">6</a> <a href="">Next</a>
+				<br>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<?php echo $__env->make('layouts.layoutright-news', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		</div>
+	</div>
+</div>
+ <?php $__env->stopSection(); ?>
+
+ <?php $__env->startSection('scripts'); ?>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

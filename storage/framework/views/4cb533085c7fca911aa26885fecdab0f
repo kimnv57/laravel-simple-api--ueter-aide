@@ -1,0 +1,53 @@
+<?php $__env->startSection('styles'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('firstcontent'); ?>
+ <?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div>
+	<img src="<?php echo e(URL::to('images/news.png')); ?>" class="newscaptain">
+	<div class="capstain">
+		<h1>Hồ sơ Người lao động</h1>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 user">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<img src="<?php echo e(URL::to('images/user.png')); ?>" class="img-circle imguser" >
+				</div>
+				<div class="panel-body">
+					<h5><?php echo $user->username; ?></h5>
+					<hr>
+					<div class="row">
+							<div class="col-md-3"><h5>Họ tên </h5>  </div>
+							<div class="col-md-9"><h5><?php echo $user->name; ?></h5></div>
+					</div>
+					<div class="row">
+							<div class="col-md-3"><h5>Email </h5></div>
+							<div class="col-md-9"> <h5><?php echo $user->email; ?> </h5></div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<?php echo $__env->make('layouts.calendarUser', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		</div>
+	</div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('scripts'); ?>
+<script type="text/javascript"  src="<?php echo e(URL::to('js/moment.js')); ?>"></script>
+<link href="<?php echo e(URL::to('css/fullcalendar.css')); ?>" rel='stylesheet' />
+<link href="<?php echo e(URL::to('css/fullcalendar.print.css')); ?>" rel='stylesheet' media='print' />
+<script src="<?php echo e(URL::to('js/fullcalendar.min.js')); ?>"></script>
+<script src="<?php echo e(URL::to('js/gcal.js')); ?>"></script>
+<script src="<?php echo e(URL::to('js/calendaruser.js')); ?>"></script>
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

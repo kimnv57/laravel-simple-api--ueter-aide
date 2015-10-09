@@ -1,0 +1,59 @@
+<?php $__env->startSection('styles'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('firstcontent'); ?>
+ <?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div id="background2" class="row">
+	<div class="col-md-3">
+	</div>
+	<div id="nen">
+	<div class="col-md-9" id="bodyNews">
+		<ul>
+			<li>
+				<span class="time">30 Dec 2023</span>
+				<h2>We Have Free Templates for Everyone</h2>
+				<a href="blog.html"><img src="images/sushi7.png" alt="Img"></a>
+					<div>
+						<p>
+							Our website templates are created with inspiration, checked for quality and originality and meticulously sliced and coded. What's more, they're absolutely free! You can do a lot with them. You can modify them. You can use them to design websites for clients, so long as you agree with the <a href="http://www.freewebsitetemplates.com/about/terms/">Terms of Use</a>. You can even remove all our links if you want to.
+						</p>
+						<a href="blog.html" class="more">Read More...</a>
+					</div>
+			</li>
+			<li>
+				<span class="time">29 Nov 2023</span>
+				<h2>We Have More Templates for You</h2>
+				<a href="blog.html"><img src="images/sushi-making.png" alt="Img"></a>
+				<div>
+					<p>
+						Looking for more templates? Just browse through all our <a href="http://www.freewebsitetemplates.com/">Free Website Templates</a> and find what you're looking for. But if you don't find any website template you can use, you can try our <a href="http://www.freewebsitetemplates.com/freewebdesign/">Free Web Design</a> service and tell us all about it. Maybe you're looking for
+					</p>
+					<a href="blog.html" class="more">Read More...</a>
+				</div>
+			</li>
+			<li>
+				<span class="time">30 Dec 2023</span>
+				<h2>We Have Free Templates for Everyone</h2>
+				<a href="blog.html"><img src="images/sushi8.png" alt="Img"></a>
+				<div>
+				<p>
+					Our website templates are created with inspiration, checked for quality and originality and meticulously sliced and coded. What's more, they're absolutely free! You can do a lot with them. You can modify them. You can use them to design websites for clients, so long as you agree with the <a href="http://www.freewebsitetemplates.com/about/terms/">Terms of Use</a>. You can even remove all our links if you want to.
+				</p>
+				<a href="blog.html" class="more">Read More...</a>
+				</div>
+			</li>
+		</ul>
+		<div class="pages">
+			<a href="">Prev</a> <a href="">1</a> <a href="">2</a> <a href="">3</a> <a href="">4</a> <a href="">5</a> <a href="">6</a> <a href="">Next</a>
+		</div>
+	</div>
+	</div>
+</div>
+ <?php $__env->stopSection(); ?>
+
+ <?php $__env->startSection('scripts'); ?>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

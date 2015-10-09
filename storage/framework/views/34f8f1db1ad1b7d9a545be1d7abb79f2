@@ -1,0 +1,157 @@
+<?php $__env->startSection('content'); ?>
+<ul class="nav nav-tabs">
+	<li class="active"><a href="#tab-general" data-toggle="tab"><?php echo e(Lang::get('admin/modal.general')); ?></a></li>
+</ul>
+
+
+<?php echo Form::open(['method'=>'POST','files' => true,'id'=>'myform']); ?>
+
+	<div class="tab-content">
+		<div class="tab-pane active" id="tab-general">
+			<div class="col-md-12">
+				<div class="form-group">
+					<label class="col-md-2 control-label" for="name">Tiêu Đề</label>
+					<div class="col-md-10">
+						<?php echo e($news->title); ?>
+
+					</div>
+				</div>
+			</div>
+			<hr>
+			<hr>
+
+			<div class="col-md-12">
+				<div class="form-group">
+					<label class="col-md-2 control-label" for="name"><?php echo e(Lang::get('admin/dishes.type')); ?></label>
+					<div class="col-md-10">
+						<select name="type" id="type" style="width: 100%;">
+							<option value="1" <?php echo e($news->type==1 ? ' selected="selected"' : ''); ?>>Nhân Viên</option>
+							<option value="2" <?php echo e($news->type==2 ? ' selected="selected"' : ''); ?>>Ưu Đãi</option>
+							<option value="3" <?php echo e($news->type==3 ? ' selected="selected"' : ''); ?>>Thực Phẩm</option>
+						</select>
+						
+					</div>
+				</div>
+			</div>
+			<hr>
+			<hr>
+
+			<div class="col-md-12">
+				<div class="form-group">
+					<label class="col-md-2 control-label" for="name">
+						Nội Dung</label>
+					<div class="col-md-10">
+						<textarea form ="myform" name="content" cols="100" rows="10" wrap="soft">
+						<?php echo e(Input::old('content',isset($news) ? $news->content : null)); ?>
+
+						</textarea>
+						
+							<?php echo $errors->first('content', '<label class="control-label"
+							for="email">:message</label>'); ?>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-12">
+				<label class="col-md-2 control-label" >
+					Ảnh cũ</label>
+						<div class="col-md-10">
+							<img src="<?php echo e(URL::to('appfiles/newsimages/thumbs/' . $news->image)); ?>">
+						</div>
+			</div>
+			<div class="col-md-12">
+				<div class="form-group">
+					<label class="col-md-2 control-label" for="image">
+						Ảnh Mới</label>
+					<div class="col-md-10">
+						<input name="image"
+						type="file" class="uploader" id="image" value="image" />
+						<?php echo $errors->first('image', '<label class="control-label"
+							for="email">:message</label>'); ?>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="form-group">
+		<div class="col-md-12">
+			<button type="reset" class="btn btn-sm btn-default">
+				<span class="glyphicon glyphicon-remove-circle"></span> <?php echo e(Lang::get("admin/modal.reset")); ?>
+
+			</button>
+			<button type="submit" class="btn btn-sm btn-success">
+				<span class="glyphicon glyphicon-ok-circle"></span> <?php echo e(Lang::get("admin/modal.edit")); ?>
+
+			</button>
+		</div>
+	</div>
+	
+<?php echo Form::close(); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('scripts'); ?>
+
+<script type="text/javascript">
+	$(function() {
+		$('form').submit(function(event) {
+			event.preventDefault();
+			var form = $(this);
+			if (form.attr('id') == '' || form.attr('id') != 'fupload'){
+				$.ajax({
+					  type : form.attr('method'),
+					  url : form.attr('action'),
+					  data : form.serialize()
+					  }).success(function() {
+						  setTimeout(function() {
+							  parent.$.colorbox.close();
+							  }, 10);
+					}).fail(function(jqXHR, textStatus, errorThrown) {
+	                    // Optionally alert the user of an error here...
+	                    alert("fail");
+	                    var textResponse = jqXHR.responseText;
+	                    var alertText = "One of the following conditions is not met:\n\n";
+	                    var jsonResponse = jQuery.parseJSON(textResponse);
+	                    $.each(jsonResponse, function(n, elem) {
+	                        alertText = alertText + elem + "\n";
+	                    });
+	                    alert(alertText);
+	                });
+				}
+			else{
+				var formData = new FormData(this);
+				$.ajax({
+					  type : form.attr('method'),
+					  url : form.attr('action'),
+					  data : formData,
+					  mimeType:"multipart/form-data",
+					  contentType: false,
+					  cache: false,
+					  processData:false
+				}).success(function() {
+					  setTimeout(function() {
+						  parent.$.colorbox.close();
+						  }, 10);
+				}).fail(function(jqXHR, textStatus, errorThrown) {
+                    // Optionally alert the user of an error here...
+                    var textResponse = jqXHR.responseText;
+                    var alertText = "One of the following conditions is not met:\n\n";
+                    var jsonResponse = jQuery.parseJSON(textResponse);
+                    $.each(jsonResponse, function(n, elem) {
+                        alertText = alertText + elem + "\n";
+                    });
+                    alert(alertText);
+                });
+			};
+		});
+		$('.close_popup').click(function() {
+			parent.$.colorbox.close()
+		});
+	});
+</script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin/model', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

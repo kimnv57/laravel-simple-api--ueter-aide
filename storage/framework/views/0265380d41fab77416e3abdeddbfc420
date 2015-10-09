@@ -1,0 +1,52 @@
+<?php /* Web site Title */ ?>
+<?php $__env->startSection('title'); ?> <?php echo e(Lang::get("admin/users.users")); ?> :: @parent
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('styles'); ?>
+@parent
+    <!-- css for calendar -->
+    <link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/calendar/pikaday.css')); ?>">
+
+<?php $__env->stopSection(); ?>
+
+<?php /* Content */ ?>
+<?php $__env->startSection('content'); ?>
+    <div class="page-header">
+        <h3>
+            Thực đơn
+            
+        </h3>
+    </div>
+    <div class="row">
+        <!-- calendar -->
+        <div class="col-md-3">
+            <input type="text" id="myCalendar">
+        </div>
+        <!-- list food -->
+        <div class="col-md-9">
+            <div class="pull-right">
+                <div class="pull-right">
+                    <a id="new" href="<?php echo e(URL::to('admin/menus/create/2015-05-08')); ?>"
+                       class="btn btn-sm  btn-primary iframe"><span
+                                class="glyphicon glyphicon-plus-sign"></span> <?php echo e(Lang::get("admin/modal.new")); ?></a>
+                </div>
+            </div>
+            <div class="menu"></div>
+
+        </div>
+    </div>
+
+<?php $__env->stopSection(); ?>
+
+<?php /* Scripts */ ?>
+<?php $__env->startSection('scripts'); ?>
+    @parent
+
+    <!-- js for calendar -->
+    <script type="text/javascript"  src="<?php echo e(URL::to('js/moment.js')); ?>"></script>
+    <script type="text/javascript"  src="<?php echo e(URL::to('js/moment-recur.js')); ?>"></script>
+    <script type="text/javascript"  src="<?php echo e(URL::to('js/pikaday.js')); ?>"></script>
+    <script type="text/javascript"  src="<?php echo e(URL::to('js/calendaradmin.js')); ?>"></script>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,286 @@
+<?php $__env->startSection('styles'); ?>
+   <link href="<?php echo e(URL::to('css/metro.css')); ?>" rel="stylesheet">
+   <link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('/css/jquery.datatables.css')); ?>">
+   <style type="text/css">
+   th, td {
+    padding: 10px;
+	}
+   </style>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+<ul class="nav nav-tabs">
+	<li class="active"><a href="#tab-general" data-toggle="tab"><?php echo e(Lang::get('admin/modal.general')); ?></a></li>
+</ul>
+
+
+<?php echo Form::open(['action' => 'Admin\MenuController@postCreate']); ?>
+
+<input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
+<input id="date" type="hidden" name="eat_time" value="<?php echo e($date); ?>">
+	<div class="tab-content">
+		
+		<div class="row">
+			<div class="col-md-4">
+				<h4>Thực Đơn cho ngày: <?php echo e($date); ?></h4>
+				<div style="height: 320px; overflow: scroll;">
+					<table  style="border-spacing:5px;">
+						<thead>
+			                <tr>
+			                    <th ><?php echo e(Lang::get("admin/dishes.name")); ?></th>
+			                    <th class="col-md-2"><?php echo e(Lang::get("admin/dishes.price")); ?></th>
+			                    <th class="col-md-2">option</th>  
+			                </tr>
+		                </thead>
+		                <tbody id="myTableBody">
+				         </tbody>
+				         <hr>
+					</table>
+				</div>
+				<div class="row">
+	            	<div class="col-md-6">
+	            		Tong Tien 
+	            	</div>
+	            	<div id="totalmoney" class="col-md-6">
+	            		0 VND
+	            	</div>
+	            </div>
+	            <hr>
+
+				<div class="form-group">
+					 <div class="col-md-12">
+						<button type="reset" class="btn btn-sm btn-default">
+							<span class="glyphicon glyphicon-remove-circle"></span> <?php echo e(Lang::get("admin/modal.reset")); ?>
+
+						</button>
+
+						<button type="submit" class="btn btn-sm btn-success">
+							<span class="glyphicon glyphicon-ok-circle"></span> <?php echo e(Lang::get("admin/modal.create")); ?>
+
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<ul class="nav nav-tabs">
+				    <li class="active"><a data-toggle="tab" href="#dessertsFood">Món Tráng Miệng</a></li>
+				    <li><a data-toggle="tab" href="#mainFood">Món Chính</a></li>
+				    <li><a data-toggle="tab" href="#soupFood">Món Canh</a></li>
+				</ul>
+
+				<div class="tab-content">
+				    <div id="dessertsFood" class="tab-pane fade in active">
+				        <p>Chọn Món…</p>
+				        <table id="dessertstable" class="table table-striped table-hover">
+			                <thead>
+			                <tr>
+			                    <th ><?php echo e(Lang::get("admin/dishes.image")); ?></th>
+			                    <th ><?php echo e(Lang::get("admin/dishes.name")); ?></th>
+			                    <th ><?php echo e(Lang::get("admin/dishes.price")); ?></th>
+			                    <th ><?php echo e(Lang::get("admin/admin.created_at")); ?></th>
+			                    <th class="col-md-1">chose</th>  
+			                </tr>
+			                </thead>
+			                <tbody>
+
+			                </tbody>
+			            </table>
+
+				    </div>
+				    <div id="mainFood" class="tab-pane fade">
+				        <p>Chọn Món…</p>
+				        <table id="maintable" class="table table-striped table-hover">
+			                <thead>
+			                <tr>
+			                    <th ><?php echo e(Lang::get("admin/dishes.image")); ?></th>
+			                    <th ><?php echo e(Lang::get("admin/dishes.name")); ?></th>
+			                    <th ><?php echo e(Lang::get("admin/dishes.price")); ?></th>
+			                    <th ><?php echo e(Lang::get("admin/admin.created_at")); ?></th>
+			                    <th class="col-md-1">chose</th>  
+			                </tr>
+			                </thead>
+			                <tbody>
+
+			                </tbody>
+			            </table>
+				    </div>
+				    <div id="soupFood" class="tab-pane fade">
+				        <p>Chọn Món…</p>
+				        <table id="souptable" class="table table-striped table-hover">
+			                <thead>
+			                <tr>
+			                    <th ><?php echo e(Lang::get("admin/dishes.image")); ?></th>
+			                    <th ><?php echo e(Lang::get("admin/dishes.name")); ?></th>
+			                    <th ><?php echo e(Lang::get("admin/dishes.price")); ?></th>
+			                    <th ><?php echo e(Lang::get("admin/admin.created_at")); ?></th>
+			                    <th class="col-md-1">chose</th>  
+			                </tr>
+			                </thead>
+			                <tbody>
+
+			                </tbody>
+			            </table>
+				    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+	
+<?php echo Form::close(); ?>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('scripts'); ?>
+<script type="text/javascript"  src="<?php echo e(URL::to('js/jquery-1.9.1.min.js')); ?>"></script>
+<script type="text/javascript"  src="<?php echo e(URL::to('js/metro.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(URL::to('/js/jquery.datatables.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/admin/js/datatables.fnReloadAjax.js')); ?>"></script>
+<script type="text/javascript"  src="<?php echo e(URL::to('js/moment.js')); ?>"></script>
+<script type="text/javascript"  src="<?php echo e(URL::to('js/moment-recur.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(URL::to('/js/adminmenu.js')); ?>"></script>
+
+<script type="text/javascript">
+    var dTable;
+    var mTable;
+    var sTable;
+    $(document).ready(function () {
+    	var date = $("#date").attr("value");
+    	var my = moment(date).recur().every(1).days();
+    	var lastday = moment(new Date(my.previous(1,"L"))).format("YYYY-MM-DD");
+    	var nextday = moment(new Date(my.next(1,"L"))).format("YYYY-MM-DD");
+    	$("<input>").attr("type","hidden").attr("name","lastday").attr("value",lastday).appendTo($("form"));
+    	$("<input>").attr("type","hidden").attr("name","nextday").attr("value",nextday).appendTo($("form"));
+
+
+
+        dTable = $('#dessertstable').dataTable({
+            "bServerSide": true,
+            "sAjaxSource": "<?php echo e(URL::to('admin/dishes/dessertsdata')); ?>",
+            "columns": [
+        {data: 'image', name: 'image'},
+        {data: 'name', name: 'name'},
+        {data: 'price', name: 'price'},
+        {data: 'created_at', name: 'created_at'},
+        {data: 'check', name: 'check'}
+        ],
+            "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
+                 $(nRow).addClass('item');
+            }
+            ,
+         columnDefs: [
+		    {
+		      targets: -1,
+		      className: 'check'
+		    }
+		  ]
+        });
+
+        mTable = $('#maintable').dataTable({
+            "bServerSide": true,
+            "sAjaxSource": "<?php echo e(URL::to('admin/dishes/maindata')); ?>",
+            "columns": [
+        {data: 'image', name: 'image'},
+        {data: 'name', name: 'name'},
+        {data: 'price', name: 'price'},
+        {data: 'created_at', name: 'created_at'},
+        {data: 'check', name: 'check'}
+        ],
+            "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
+                 $(nRow).addClass('item');
+            }
+           	,
+         columnDefs: [
+		    {
+		      targets: -1,
+		      className: 'check'
+		    }
+		  ]
+        });
+         setTimeout(function() {
+         	sTable = $('#souptable').dataTable({
+            "bServerSide": true,
+            "sAjaxSource": "<?php echo e(URL::to('admin/dishes/soupdata')); ?>",
+            "columns": [
+	        {data: 'image', name: 'image'},
+	        {data: 'name', name: 'name'},
+	        {data: 'price', name: 'price'},
+	        {data: 'created_at', name: 'created_at'},
+	        {data: 'check', name: 'check'}
+	        ],
+	            "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
+	                 $(nRow).addClass('item');
+	            }
+	            ,
+	         columnDefs: [
+			    {
+			      targets: -1,
+			      className: 'check'
+			    }
+			  ]
+	        });
+		}, 300);
+        
+    });
+
+</script>
+<script type="text/javascript">
+	$(function() {
+		$('form').submit(function(event) {
+			event.preventDefault();
+			var form = $(this);
+			if (form.attr('id') == '' || form.attr('id') != 'fupload'){
+				$.ajax({
+					  type : form.attr('method'),
+					  url : form.attr('action'),
+					  data : form.serialize()
+					  }).success(function() {
+						  setTimeout(function() {
+							  parent.$.colorbox.close();
+							  }, 10);
+					}).fail(function(jqXHR, textStatus, errorThrown) {
+	                    // Optionally alert the user of an error here...
+	                    alert("fail");
+	                    var textResponse = jqXHR.responseText;
+	                    var alertText = "One of the following conditions is not met:\n\n";
+	                    var jsonResponse = jQuery.parseJSON(textResponse);
+	                    $.each(jsonResponse, function(n, elem) {
+	                        alertText = alertText + elem + "\n";
+	                    });
+	                    alert(alertText);
+	                });
+				}
+			else{
+				var formData = new FormData(this);
+				$.ajax({
+					  type : form.attr('method'),
+					  url : form.attr('action'),
+					  data : formData,
+					  mimeType:"multipart/form-data",
+					  contentType: false,
+					  cache: false,
+					  processData:false
+				}).success(function() {
+					  setTimeout(function() {
+						  parent.$.colorbox.close();
+						  }, 10);
+				}).fail(function(jqXHR, textStatus, errorThrown) {
+                    // Optionally alert the user of an error here...
+                    var textResponse = jqXHR.responseText;
+                    var alertText = "One of the following conditions is not met:\n\n";
+                    var jsonResponse = jQuery.parseJSON(textResponse);
+                    $.each(jsonResponse, function(n, elem) {
+                        alertText = alertText + elem + "\n";
+                    });
+                    alert(alertText);
+                });
+			};
+		});
+		$('.close_popup').click(function() {
+			parent.$.colorbox.close()
+		});
+	});
+</script>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin/model', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

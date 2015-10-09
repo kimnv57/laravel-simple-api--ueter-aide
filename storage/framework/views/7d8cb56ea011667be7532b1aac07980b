@@ -1,0 +1,164 @@
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel"> Login</h4>
+                              </div>
+                              <div class="modal-body">
+                                <?php if(count($errors) > 0): ?>
+                                    <div class="alert alert-danger">
+                                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                        <ul>
+                                            <?php foreach($errors->all() as $error): ?>
+                                                <li><?php echo e($error); ?></li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    </div>
+                                <?php endif; ?>
+
+                                <form class="form-horizontal" role="form" method="POST" action="<?php echo e(url('/auth/login')); ?>">
+                                    <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">E-Mail Address</label>
+                                        <div class="col-md-6">
+                                            <input type="email" class="form-control" name="email" value="<?php echo e(old('email')); ?>">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Password</label>
+                                        <div class="col-md-6">
+                                            <input type="password" class="form-control" name="password">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-md-offset-4">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="remember"> Remember Me
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-md-offset-4">
+                                            <button type="submit" class="btn btn-primary">Login</button>
+
+                                            <a class="btn btn-link" href="<?php echo e(url('/password/email')); ?>">Forgot Your Password?</a>
+                                        </div>
+                                    </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+            </div>
+<div class="header-wrapper">
+    <div class="header header-v1">
+
+    <header id="header-top" style="padding:9px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="header-top clearfix">
+                    <div class="header-top-1 col-xs-12 col-sm-4 col-md-4 collg-4">
+                        <div id="cs_social_widget-2" class="header-top-widget-col widget_cs_social_widget">
+                        <ul class="cs-social">
+                            <li>
+                                <a href="" class="twitter"></a>
+                            </li>
+                            <li>
+                                <a href="" class="facebook"></a>
+                            </li>
+                            <li>
+                                <a href="" class="googleplus"></a>
+                            </li>
+                            <li>
+                                <a href="" class="vimeo"></a>
+                            </li>
+                        </ul>  
+                        </div>                
+                    </div>
+                    <div class="header-top-2 col-xs-12 col-sm-4 col-md-4 collg-4"></div>
+                    <div class="header-top-3 col-xs-12 col-sm-4 col-md-4 collg-4"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <header id="cshero-header" class style="background-color:rgba(255,255,255,1);">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <hr>
+                    <span class="icon-bar" style="background: #656565;"></span>
+                    <span class="icon-bar" style="background: #656565;"></span>
+                    <span class="icon-bar" style="background: #656565;"></span>
+                    <span class="icon-bar" style="background: #656565;"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="images/logo.png" style="height: 55px" class="normal-logo logo-v1">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul id="menu" class="nav navbar-nav" >
+                    <li class="<?php echo e((Request::is('/') ? 'active' : '')); ?> <?php echo e((Request::is('home') ? 'active' : '')); ?>">
+                        <a href="<?php echo URL::to(''); ?>"><i class="glyphicon glyphicon-home"></i>Trang Chủ</a>
+                    </li>
+                    
+                    <?php if(Auth::guest()): ?>
+                        <li class="<?php echo e((Request::is('auth/login') ? 'active' : '')); ?>" data-toggle="modal" data-target="#myModal"><a ><i
+                                    class="fa fa-sign-in"></i>Đăng ký ăn</a></li>
+                    <?php else: ?>
+                    <li class="<?php echo e((Request::is('resignfood') ? 'active' : '')); ?>">
+                        <a href="<?php echo URL::to('resignfood'); ?>"> Đăng ký ăn</a>
+                    </li>
+                    <?php endif; ?>
+                    <li class="<?php echo e((Request::is('news') ? 'active' : '')); ?>">
+                        <a href="<?php echo URL::to('news'); ?>">Bản tin</a>
+                    </li>
+                    <li class="<?php echo e((Request::is('contact') ? 'active' : '')); ?>">
+                        <a href="<?php echo URL::to('contact'); ?>">Liên hệ</a>
+                    </li>
+                    <li class="<?php echo e((Request::is('about') ? 'active' : '')); ?>">
+                        <a href="<?php echo URL::to('about'); ?>">Giới thiệu</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" id="button-login" >
+                    <?php if(Auth::guest()): ?>
+                        <li class="<?php echo e((Request::is('auth/login') ? 'active' : '')); ?> " data-toggle="modal" data-target="#myModal"><a ><i
+                                    class="fa fa-sign-in"></i> Login</a></li>
+
+                        
+
+                    <?php else: ?>
+                    <li class="dropdown" id="user">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-expanded="false"><i ></i> <?php echo e(Auth::user()->name); ?> <i
+                                    class="glyphicon glyphicon-triangle-bottom"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <?php if(Auth::check()): ?>
+                                <?php if(Auth::user()->hasRole('admin')): ?>
+                                    <li>
+                                        <a href="<?php echo URL::to('admin/dashboard'); ?>"><i class="fa fa-tachometer"></i> Trang quản trị</a>
+                                    </li>
+                                <?php endif; ?>
+                                <li role="presentation" class="divider"></li>
+                            <?php endif; ?>
+                            <li>
+                                <a href="<?php echo URL::to('auth/logout'); ?>"><i class="fa fa-sign-out"></i> Đăng xuất</a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php endif; ?>
+                </ul>
+            <?php echo $__env->yieldContent('firstcontent'); ?>
+            
+            </div>
+        </div>
+    </header>
+    </div>
+    </div>

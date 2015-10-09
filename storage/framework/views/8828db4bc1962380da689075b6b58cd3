@@ -1,0 +1,90 @@
+
+<nav class="my-navbar navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">ABCkitchen</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="<?php echo e((Request::is('admin/dashboard') ? 'active' : '')); ?>">
+                        <a href="<?php echo URL::to('admin/dashboard'); ?>"><i class="glyphicon glyphicon-dashboard"></i> Thống kê</a>
+                    </li>
+                    <li <?php echo e((Request::is('admin/language*') ? ' class=active' : '')); ?>>
+                        <a href="<?php echo e(URL::to('admin/languages')); ?>"
+                                >
+                            <i class="glyphicon glyphicon-flag"></i><span
+                                    class="hidden-sm text"> Language</span>
+                        </a>
+                    </li>
+
+                    <li <?php echo e((Request::is('admin/dishes*') ? ' class=active' : '')); ?>>
+                        <a href="<?php echo e(URL::to('admin/dishes')); ?>"
+                                >
+                            <i class="glyphicon glyphicon-flag"></i><span
+                                    class="hidden-sm text"> Món Ăn</span>
+                        </a>
+                    </li>
+                    <li <?php echo e((Request::is('admin/menus*') ? ' class=active' : '')); ?>>
+                        <a href="<?php echo e(URL::to('admin/menus')); ?>"
+                                >
+                            <i class="glyphicon glyphicon-flag"></i><span
+                                    class="hidden-sm text"> Thực Đơn</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li <?php echo e((Request::is('admin/users*') ? ' class=active' : '')); ?> >
+                        <a href="<?php echo e(URL::to('admin/users')); ?>"
+                                >
+                            <i class="glyphicon glyphicon-user"></i><span
+                                    class="hidden-sm text"> Users</span>
+                        </a>
+                    </li>
+                    <li  <?php echo e((Request::is('admin/roles*') ? ' class=active' : '')); ?>>
+                        <a href="#"
+                                >
+                            <i class="glyphicon glyphicon-tasks"></i><span
+                                    class="hidden-sm text"> Roles</span>
+                        </a>
+                    </li>
+                </ul>
+                
+
+                <ul class="nav navbar-nav navbar-right">
+                    <?php if(Auth::guest()): ?>
+                        <li class="<?php echo e((Request::is('auth/login') ? 'active' : '')); ?>" data-toggle="modal" data-target="#myModal"><a ><i
+                                    class="fa fa-sign-in"></i> Login</a></li>
+
+                        
+
+                    <?php else: ?>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-expanded="false"><i ></i> <?php echo e(Auth::user()->name); ?> <i
+                                    class="glyphicon glyphicon-triangle-bottom"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <?php if(Auth::check()): ?>
+                                <?php if(Auth::user()->hasRole('admin')): ?>
+                                    <li>
+                                        <a href="<?php echo URL::to('home'); ?>"><i class="fa fa-tachometer"></i> Trang người dùng</a>
+                                    </li>
+                                <?php endif; ?>
+                                <li role="presentation" class="divider"></li>
+                            <?php endif; ?>
+                            <li>
+                                <a href="<?php echo URL::to('auth/logout'); ?>"><i class="fa fa-sign-out"></i> Đăng xuất</a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php endif; ?>
+                </ul>
+            </div>
+        </div>
+    </nav>

@@ -1,0 +1,131 @@
+<?php $__env->startSection('content'); ?>
+<ul class="nav nav-tabs">
+	<li class="active"><a href="#tab-general" data-toggle="tab"><?php echo e(Lang::get('admin/modal.general')); ?></a></li>
+</ul>
+
+
+<?php echo Form::open(['action' => 'Admin\NewsController@postCreate','files' => true,'id'=>'myform']); ?>
+
+	<div class="tab-content">
+		<div class="tab-pane active" id="tab-general">
+			<div class="col-md-12">
+				<div class="form-group">
+					<label class="col-md-2 control-label" for="name">Tiêu Đề</label>
+					<div class="col-md-10">
+						<input class="form-control" tabindex="1"
+							placeholder="Tiêu Đề" type="text"
+							name="title" id="title"
+							value="<?php echo e(Input::old('name')); ?>">
+							<?php echo $errors->first('title', '<label class="control-label"
+							for="email">:message</label>'); ?>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="tab-pane active" id="tab-general">
+			<div class="col-md-12">
+				<div class="form-group">
+					<label class="col-md-2 control-label" for="name">Thể Loại</label>
+					<div class="col-md-10">
+						<select name="type" id="type" style="width: 100%;">
+							<option value="1">Nhân Viên</option>
+							<option value="2">Ưu Đãi</option>
+							<option value="3">Thực Phẩm</option>
+						</select>
+						
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-12">
+				<div class="form-group">
+					<label class="col-md-2 control-label" for="name">
+						Nội Dung</label>
+					<div class="col-md-10">
+
+
+
+						<textarea form ="myform" name="content" cols="100" rows="10" wrap="soft">
+						<?php echo e(Input::old('content')); ?>
+
+						</textarea>
+						
+							<?php echo $errors->first('content', '<label class="control-label"
+							for="email">:message</label>'); ?>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="form-group">
+					<label class="col-md-2 control-label" for="name">Ảnh</label>
+					<div class="col-md-10">
+						<input name="image"
+						type="file" class="uploader" id="image" value="image" />
+						<?php echo $errors->first('image', '<label class="control-label"
+							for="email">:message</label>'); ?>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-md-12">
+			<button type="reset" class="btn btn-sm btn-warning close_popup">
+				<span class="glyphicon glyphicon-ban-circle"></span> <?php echo e(Lang::get("admin/modal.cancel")); ?>
+
+			</button>
+			<button type="reset" class="btn btn-sm btn-default">
+				<span class="glyphicon glyphicon-remove-circle"></span> <?php echo e(Lang::get("admin/modal.reset")); ?>
+
+			</button>
+			<button type="submit" class="btn btn-sm btn-success">
+				<span class="glyphicon glyphicon-ok-circle"></span> <?php echo e(Lang::get("admin/modal.create")); ?>
+
+			</button>
+		</div>
+	</div>
+	
+<?php echo Form::close(); ?>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('scripts'); ?>
+
+<script type="text/javascript">
+	$(function() {
+		$('form').submit(function(event) {
+			event.preventDefault();
+			var form = $(this);
+				var formData = new FormData(this);
+				$.ajax({
+					  type : form.attr('method'),
+					  url : form.attr('action'),
+					  data : formData,
+					  mimeType:"multipart/form-data",
+					  contentType: false,
+					  cache: false,
+					  processData:false
+				}).success(function() {
+					  setTimeout(function() {
+						  parent.$.colorbox.close();
+						  }, 10);
+				}).fail(function(jqXHR, textStatus, errorThrown) {
+                    // Optionally alert the user of an error here...
+                    var textResponse = jqXHR.responseText;
+                    var alertText = "One of the following conditions is not met:\n\n";
+                    var jsonResponse = jQuery.parseJSON(textResponse);
+                    $.each(jsonResponse, function(n, elem) {
+                        alertText = alertText + elem + "\n";
+                    });
+                    alert(alertText);
+                });
+		});
+		$('.close_popup').click(function() {
+			parent.$.colorbox.close()
+		});
+	});
+</script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin/model', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

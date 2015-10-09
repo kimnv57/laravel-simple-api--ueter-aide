@@ -1,0 +1,14 @@
+<div class="food">
+  <div class="panel panel-default mypanel">
+  						<div class="myfood panel-heading">
+  							<img src="<?php echo e(URL::to('images/img7.jpg')); ?>" class="img-responsive">
+  						</div>
+  						<div class="panel-body mypanelbody">
+	    					<h5>Thực đơn ngày</h5>
+	    					<hr>
+	    					<h6></h6>
+	    					<button type="button" class="btn btn-default buttonmore">Xem menu</button>
+  						</div>
+  </div>					
+</div>
+<br>

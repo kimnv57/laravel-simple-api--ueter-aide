@@ -1,0 +1,133 @@
+
+<nav class="my-navbar navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">ABCkitchen</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="<?php echo e((Request::is('/') ? 'active' : '')); ?>">
+                        <a href="<?php echo URL::to(''); ?>"><i class="glyphicon glyphicon-home"></i> Trang Chủ</a>
+                    </li>
+                    <?php if(Auth::check()): ?>
+                        <?php if(Auth::user()->hasRole('admin')): ?>
+                            <li class="<?php echo e((Request::is('admin/dashboard') ? 'active' : '')); ?>">
+                                <a href="<?php echo URL::to('admin/dashboard'); ?>"><i class="glyphicon glyphicon-dashboard"></i> Quản Lý</a>
+                            </li>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                    <?php if(Auth::guest()): ?>
+                        <li class="<?php echo e((Request::is('auth/login') ? 'active' : '')); ?>" data-toggle="modal" data-target="#myModal"><a ><i
+                                    class="fa fa-sign-in"></i> Đăng ký ăn</a></li>
+                    <?php else: ?>
+                    <li class="<?php echo e((Request::is('resignfood') ? 'active' : '')); ?>">
+                        <a href="<?php echo URL::to('resignfood'); ?>"><i ></i> Đăng ký ăn</a>
+                    </li>
+                    <?php endif; ?>
+                    <li class="<?php echo e((Request::is('news') ? 'active' : '')); ?>">
+                        <a href="<?php echo URL::to('news'); ?>"><i ></i> Bản tin</a>
+                    </li>
+                    <li class="<?php echo e((Request::is('contact') ? 'active' : '')); ?>">
+                        <a href="<?php echo URL::to('contact'); ?>"><i ></i> Liên hệ</a>
+                    </li>
+                    <li class="<?php echo e((Request::is('about') ? 'active' : '')); ?>">
+                        <a href="<?php echo URL::to('about'); ?>"><i ></i> Giới thiệu</a>
+                    </li>
+                </ul>
+                
+
+                <ul class="nav navbar-nav navbar-right">
+                    <?php if(Auth::guest()): ?>
+                        <li class="<?php echo e((Request::is('auth/login') ? 'active' : '')); ?>" data-toggle="modal" data-target="#myModal"><a ><i
+                                    class="fa fa-sign-in"></i> Login</a></li>
+
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel"> Login</h4>
+                              </div>
+                              <div class="modal-body">
+                                <?php if(count($errors) > 0): ?>
+                                    <div class="alert alert-danger">
+                                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                        <ul>
+                                            <?php foreach($errors->all() as $error): ?>
+                                                <li><?php echo e($error); ?></li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    </div>
+                                <?php endif; ?>
+
+                                <form class="form-horizontal" role="form" method="POST" action="<?php echo e(url('/auth/login')); ?>">
+                                    <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">E-Mail Address</label>
+                                        <div class="col-md-6">
+                                            <input type="email" class="form-control" name="email" value="<?php echo e(old('email')); ?>">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Password</label>
+                                        <div class="col-md-6">
+                                            <input type="password" class="form-control" name="password">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-md-offset-4">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="remember"> Remember Me
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-md-offset-4">
+                                            <button type="submit" class="btn btn-primary">Login</button>
+
+                                            <a class="btn btn-link" href="<?php echo e(url('/password/email')); ?>">Forgot Your Password?</a>
+                                        </div>
+                                    </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                    <?php else: ?>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-expanded="false"><i ></i> <?php echo e(Auth::user()->name); ?> <i
+                                    class="glyphicon glyphicon-triangle-bottom"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <?php if(Auth::check()): ?>
+                                <?php if(Auth::user()->hasRole('admin')): ?>
+                                    <li>
+                                        <a href="<?php echo URL::to('admin/dashboard'); ?>"><i class="fa fa-tachometer"></i> Dashboard</a>
+                                    </li>
+                                <?php endif; ?>
+                                <li role="presentation" class="divider"></li>
+                            <?php endif; ?>
+                            <li>
+                                <a href="<?php echo URL::to('auth/logout'); ?>"><i class="fa fa-sign-out"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php endif; ?>
+                </ul>
+            </div>
+        </div>
+    </nav>

@@ -1,0 +1,188 @@
+<?php $__env->startSection('styles'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('firstcontent'); ?>
+ <?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+
+
+<div class="slider">
+ 	<?php echo $__env->make('partials.slideshow', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+</div>
+<div class="container">
+		<div class="row myrow container">
+			<div class=" images1 col-md-4 col-sm-6">
+				<img src="images/01.jpg" class="img-responsive">
+				<div class="row" id="view">
+				<div class="cs-carousel-header-feature col-md-12">
+					<h3>
+						<a href="#">Nhân viên</a>
+					</h3>
+					<h4>
+						Cẩn thận - chu đáo
+					</h4>
+				</div>
+				</div>
+                <div class="row">
+	                <div class="cs-carousel-body1 col-md-12">
+	                    <div class="cs-carousel-post-icon">
+							<div class="row">
+		                    	<div class="col-md-4 col-xs-4 col-sm-4"></div>
+		                    	<div class="col-md-4 col-xs-4 col-sm-4">
+		                    		<img src="images/staff.png" class="img-responsive">
+		                    	</div>
+		                    	<div class="col-md-4 col-xs-4 col-sm-4"></div>
+		                	</div>                    
+		                </div>
+	                    <div class="cs-carousel-inner">
+	                        <div class="cs-carousel-post-meta">
+	                            <div class="cs-carousel-post-title">
+	                                <h3>CHEF HẢI - GIÁM KHẢO VUA ĐẦU BẾP VIỆT NAM</h3>
+	                            </div>
+	                     	</div>
+	                        <div class="cs-carousel-post-description">
+	                            <p>: “Điều tôi thấy vui và tự hào nhất là tôi biết lựa chọn và sáng tạo ra nh...</p>
+	                        </div>
+	                    </div>
+	                </div>
+                </div>
+			</div>
+			<div class=" images2 col-md-4 col-sm-6">
+				<img src="images/01.jpg" class="img-responsive">
+				<div class="row" id="view">
+				<div class="cs-carousel-header-feature col-md-12">
+					<h3>
+						<a href="#">Nhân viên</a>
+					</h3>
+					<h4>
+						Cẩn thận - chu đáo
+					</h4>
+				</div>
+				</div>
+                <div class="row">
+	                <div class="cs-carousel-body2 col-md-12">
+	                    <div class="cs-carousel-post-icon">
+							<div class="row">
+		                    	<div class="col-md-4"></div>
+		                    	<div class="col-md-4">
+		                    		<img src="images/staff.png">
+		                    	</div>
+		                    	<div class="col-md-4"></div>
+		                	</div>                    
+		                </div>
+	                    <div class="cs-carousel-inner">
+	                        <div class="cs-carousel-post-meta">
+	                            <div class="cs-carousel-post-title">
+	                                <h3>CHEF HẢI - GIÁM KHẢO VUA ĐẦU BẾP VIỆT NAM</h3>
+	                            </div>
+	                     	</div>
+	                        <div class="cs-carousel-post-description">
+	                            <p>: “Điều tôi thấy vui và tự hào nhất là tôi biết lựa chọn và sáng tạo ra nh...</p>
+	                        </div>
+	                    </div>
+	                </div>
+                </div>
+			</div>
+			<div class=" images3 col-md-4 col-sm-0">
+				<img src="images/01.jpg" class="img-responsive">
+				<div class="row" id="view">
+				<div class="cs-carousel-header-feature col-md-12">
+					<h3>
+						<a href="#">Nhân viên</a>
+					</h3>
+					<h4>
+						Cẩn thận - chu đáo
+					</h4>
+				</div>
+				</div>
+                <div class="row">
+	                <div class="cs-carousel-body3 col-md-12">
+	                    <div class="cs-carousel-post-icon">
+							<div class="row">
+		                    	<div class="col-md-4"></div>
+		                    	<div class="col-md-4">
+		                    		<img src="images/staff.png">
+		                    	</div>
+		                    	<div class="col-md-4"></div>
+		                	</div>                    
+		                </div>
+	                    <div class="cs-carousel-inner">
+	                        <div class="cs-carousel-post-meta">
+	                            <div class="cs-carousel-post-title">
+	                                <h3>CHEF HẢI - GIÁM KHẢO VUA ĐẦU BẾP VIỆT NAM</h3>
+	                            </div>
+	                     	</div>
+	                        <div class="cs-carousel-post-description">
+	                            <p>: “Điều tôi thấy vui và tự hào nhất là tôi biết lựa chọn và sáng tạo ra nh...</p>
+	                        </div>
+	                    </div>
+	                </div>
+                </div>
+			</div>
+		</div>  
+		<div class="row myrow container">
+			<h3>Món ăn mới</h3>
+			<hr>
+			<button type="button" class="btn btn-default buttonold">Cũ hơn</button>
+		</div>
+		<div class="row myrow myrowfood container">
+			<div class="food col-md-3 col-sm-6 col-xs-12 active">
+				<div class="panel panel-default mypanel">
+  					<div class="myfood panel-heading">
+  						<img src="images/img5.jpg" class="img-responsive">
+  					</div>
+  					<div class="panel-body mypanelbody">
+    					<h5>Bít tết</h5>
+    					<hr>
+    					<h6>Ngon bổ</h6>
+    					<button type="button" class="btn btn-default buttonmore">Xem thêm</button>
+  					</div>
+				</div>
+			</div>
+			<div class="food col-md-3 col-sm-6 col-xs-12">
+				<div class="panel panel-default mypanel">
+  					<div class="myfood panel-heading">
+  						<img src="images/img5.jpg" class="img-responsive">
+  					</div>
+  					<div class="panel-body mypanelbody">
+    					<h5>Bít tết</h5>
+    					<hr>
+    					<h6>Ngon bổ</h6>
+    					<button type="button" class="btn btn-default buttonmore">Xem thêm</button>
+  					</div>
+				</div>
+			</div>
+			<div class="food col-md-3 col-sm-6 col-xs-12">
+				<div class="panel panel-default mypanel">
+  					<div class="myfood panel-heading">
+  						<img src="images/img5.jpg" class="img-responsive">
+  					</div>
+  					<div class="panel-body mypanelbody">
+    					<h5>Bít tết</h5>
+    					<hr>
+    					<h6>Ngon bổ</h6>
+    					<button type="button" class="btn btn-default buttonmore">Xem thêm</button>
+  					</div>
+				</div>
+			</div>
+			<div class="food col-md-3 col-sm-6 col-xs-12">
+				<div class="panel panel-default mypanel">
+  					<div class="myfood panel-heading">
+  						<img src="images/img5.jpg" class="img-responsive">
+  					</div>
+  					<div class="panel-body mypanelbody">
+    					<h5>Bít tết</h5>
+    					<hr>
+    					<h6>Ngon bổ</h6>
+    					<button type="button" class="btn btn-default buttonmore">Xem thêm</button>
+  					</div>
+				</div>
+			</div>
+		</div>
+</div>
+<?php $__env->stopSection(); ?>
+
+ <?php $__env->startSection('scripts'); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

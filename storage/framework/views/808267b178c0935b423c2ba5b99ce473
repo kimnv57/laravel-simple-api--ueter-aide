@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+     <title><?php $__env->startSection('title'); ?> Laravel 5 Sample Site <?php echo $__env->yieldSection(); ?></title>
+     <link rel="icon" href="images/favicon.ico">
+     <link rel="shortcut icon" href="images/favicon.ico" />
+     <link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/bootstrap.min.css')); ?>">
+     <link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/mystyle.css')); ?>">
+     <!-- <link href="<?php echo e(asset('/css/all.css')); ?>" rel="stylesheet"> -->
+     <?php echo $__env->yieldContent('styles'); ?>
+     
+
+     </head>
+<body>
+  <?php echo $__env->make('partials.nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+  <?php echo $__env->yieldContent('firstcontent'); ?>
+  <div class="container">
+    <?php echo $__env->yieldContent('content'); ?>
+    <?php echo $__env->make('partials.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+  </div>
+  <?php echo $__env->make('partials.footer-design', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<script src="<?php echo e(URL::to('/js/jquery.min.js')); ?>"></script>
+<script src="<?php echo e(URL::to('/js/bootstrap.min.js')); ?>"></script>
+<?php echo $__env->yieldContent('scripts'); ?>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<?php /* Web site Title */ ?>
+<?php $__env->startSection('title'); ?> <?php echo e($title); ?> :: @parent  <?php $__env->stopSection(); ?>
+
+<?php /* Content */ ?>
+<?php $__env->startSection('main'); ?>
+	<h2>this is dashboard</h2>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,76 @@
+<?php $__env->startSection('styles'); ?>
+   <link href="<?php echo e(URL::to('css/metro.css')); ?>" rel="stylesheet">
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+<ul class="nav nav-tabs">
+	<li class="active"><a href="#tab-general" data-toggle="tab"><?php echo e(Lang::get('admin/modal.general')); ?></a></li>
+</ul>
+
+
+<?php echo Form::open(['action' => 'Admin\MenuController@postCreate','files' => true]); ?>
+
+	<div class="tab-content">
+		<div class="tab-pane active" id="tab-general">
+
+
+			<div class="col-md-12">
+				<div class="form-group">
+					<label class="col-md-2 control-label" style="margin-top:20px;"for="name"><?php echo e(Lang::get('admin/menus.eattime')); ?></label>
+					<div class="col-md-10">
+						<div class="metro">
+	                        	<div  id="mydatepicker" class="input-control text"  data-buttontoday="true" data-preset="2015-05-01">
+	                            	<input type="text" readonly="readonly" name="time">
+	                            <button class="button" type="button"><span class="mif-calendar glyphicon glyphicon-calendar"></span></button>
+                   	 	</div>
+						</div>
+		                <?php echo $errors->first('time', '<label class="control-label"
+						for="email">:message</label>'); ?>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-md-12">
+			<button type="reset" class="btn btn-sm btn-default">
+				<span class="glyphicon glyphicon-remove-circle"></span> <?php echo e(Lang::get("admin/modal.reset")); ?>
+
+			</button>
+
+			<button type="submit" class="btn btn-sm btn-success">
+				<span class="glyphicon glyphicon-ok-circle"></span> <?php echo e(Lang::get("admin/modal.create")); ?>
+
+			</button>
+		</div>
+	</div>
+
+	
+<?php echo Form::close(); ?>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('scripts'); ?>
+<script type="text/javascript"  src="<?php echo e(URL::to('js/jquery-1.9.1.min.js')); ?>"></script>
+ <script type="text/javascript"  src="<?php echo e(URL::to('js/metro.js')); ?>"></script>
+<script>
+                $(document).ready(function() {
+                    function onChange() {
+                        alert('Change :');
+                    }
+
+                    $("#mydatepicker").datepicker({
+                        getDates: function(d){
+                        	alert('hi');
+                        },
+                        dayClick: function(d, d0){
+                        	alert('hi');
+                        },
+                        format: "dd/mm/yyyy"
+                    });
+                });
+            </script>    
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin/model', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,34 @@
+<?php $__env->startSection('styles'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+
+<div id="header">
+	<img src="<?php echo e(URL::to('images/news.png')); ?>" class="newscaptain">
+	<div class="capstain">
+		<h1>Tin tức - Sự kiện</h1>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8" id="bodyNews">
+			<h2><?php echo e($news->title); ?></h2> <br> <br>
++			<img src="<?php echo e(URL::to('appfiles/newsimages/'. $news->image)); ?>" class="newscaptain1">
+			<hr>
+			<p>
+				<?php echo e($news->content); ?>
+
+			</p>
+			<p class="pull-right"><?php echo e($news->created_at); ?></p>
+		</div>
+		<div class="col-md-4">
+			<?php echo $__env->make('layouts.layoutright-news', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		</div>
+	</div>
+</div>
+ <?php $__env->stopSection(); ?>
+
+ <?php $__env->startSection('scripts'); ?>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

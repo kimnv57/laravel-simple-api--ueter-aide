@@ -1,0 +1,24 @@
+<?php /* Web site Title */ ?>
+<?php $__env->startSection('title'); ?>
+    Administration :: @parent
+<?php $__env->stopSection(); ?>
+
+<?php /* Styles */ ?>
+<?php $__env->startSection('styles'); ?>
+    @parent
+
+<?php $__env->stopSection(); ?>
+
+<?php /* Sidebar */ ?>
+<?php $__env->startSection('content'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php /* Scripts */ ?>
+<?php $__env->startSection('scripts'); ?>
+    @parent
+    <?php /* Default admin scripts*/ ?>
+
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('backend', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

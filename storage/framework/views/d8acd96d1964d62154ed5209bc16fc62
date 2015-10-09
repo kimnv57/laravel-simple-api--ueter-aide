@@ -1,0 +1,79 @@
+<?php /* Web site Title */ ?>
+<?php $__env->startSection('title'); ?> <?php echo e(Lang::get("admin/users.users")); ?> :: @parent
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('styles'); ?>
+@parent
+<link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('/css/jquery.datatables.css')); ?>">
+<?php $__env->stopSection(); ?>
+
+
+<?php /* Content */ ?>
+<?php $__env->startSection('content'); ?>
+    <div class="page-header">
+        <h3>
+            Món ăn
+            <div class="pull-right">
+                <div class="pull-right">
+                    <a href="<?php echo e(URL::to('admin/packages/create')); ?>"
+                       class="btn btn-sm  btn-primary iframe"><span
+                                class="glyphicon glyphicon-plus-sign"></span> <?php echo e(Lang::get("admin/modal.new")); ?></a>
+                </div>
+            </div>
+        </h3>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table id="table" class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th class="col-md-1">name</th>
+                    <th >content</th>
+                    <th ><?php echo e(Lang::get("admin/admin.created_at")); ?></th>
+                    <th ><?php echo e(Lang::get("admin/admin.action")); ?></th> 
+                    <th class="col-md-1">chose</th>  
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+
+<?php /* Scripts */ ?>
+<?php $__env->startSection('scripts'); ?>
+    @parent
+    <script type="text/javascript" src="<?php echo e(URL::to('/js/jquery.datatables.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/admin/js/datatables.fnReloadAjax.js')); ?>"></script>
+    <script type="text/javascript">
+        var oTable;
+        $(document).ready(function () {
+            oTable = $('#table').dataTable({
+                "bServerSide": true,
+                "sAjaxSource": "<?php echo e(URL::to('admin/packages/data')); ?>",
+                "columns": [
+            {data: 'name', name: 'name'},
+            {data: 'content', name: 'content'},
+            {data: 'created_at', name: 'created_at'},
+            {data: 'actions', name: 'actions'},
+            {data: 'check', name: 'check'}
+            ],
+            "fnDrawCallback": function (oSettings) {
+                    $(".iframe").colorbox({
+                        iframe: true,
+                        width: "80%",
+                        height: "80%",
+                        onClosed: function () {
+                            oTable.fnReloadAjax();
+                        }
+                    });
+                }
+            });
+        });
+
+    </script>
+    
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

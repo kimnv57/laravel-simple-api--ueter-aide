@@ -1,0 +1,153 @@
+<?php if(Auth::guest()): ?>
+<!-- Modal dialog login-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel"> Login</h4>
+          </div>
+          <div class="modal-body">
+                <div class="loi">
+
+                </div>
+
+
+            <form class="form-horizontal" id="loginform" role="form" method="POST" action="<?php echo e(url('/auth/login')); ?>">
+                <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">E-Mail Address</label>
+                    <div class="col-md-6">
+                        <input type="email" class="form-control" name="email" value="<?php echo e(old('email')); ?>">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Password</label>
+                    <div class="col-md-6">
+                        <input type="password" class="form-control" name="password">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-6 col-md-offset-4">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="remember"> Remember Me
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-6 col-md-offset-4">
+                        <button type="submit" class="btn btn-primary">Login</button>
+
+                        <a class="btn btn-link" href="<?php echo e(url('/password/email')); ?>">Forgot Your Password?</a>
+                    </div>
+                </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+<?php endif; ?>
+
+
+        
+<div class="header-wrapper">
+    <div class="header header-v1">
+
+
+    <header id="header-top" style="padding:9px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="header-top clearfix">
+                    <div class="header-top-1 col-xs-12 col-sm-4 col-md-4 collg-4">
+                        <div id="cs_social_widget-2" class="header-top-widget-col widget_cs_social_widget">
+                        <ul class="cs-social">
+                            <li>
+                                <a href="#" class="twitter"></a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/thaocoj.k57" class="facebook"></a>
+                            </li>
+                            <li>
+                                <a href="https://plus.google.com/u/0/" class="googleplus"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="vimeo"></a>
+                            </li>
+                        </ul>  
+                        </div>                
+                    </div>
+                    <div class="header-top-2 col-xs-12 col-sm-4 col-md-4 collg-4"></div>
+                    <div class="header-top-3 col-xs-12 col-sm-4 col-md-4 collg-4"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <header id="cshero-header" class style="background-color:rgba(255,255,255,1);">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <hr>
+                    <span class="icon-bar" style="background: #656565;"></span>
+                    <span class="icon-bar" style="background: #656565;"></span>
+                    <span class="icon-bar" style="background: #656565;"></span>
+                    <span class="icon-bar" style="background: #656565;"></span>
+                </button>
+                <a class="navbar-brand" href="<?php echo e(URL::to('/')); ?>">
+                    <img src="<?php echo e(URL::to('images/logo.png')); ?>" style="height: 55px" class="normal-logo logo-v1">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul id="menu" class="nav navbar-nav" >
+                    
+                    
+                    <?php if(Auth::guest()): ?>
+                        <li class="<?php echo e((Request::is('/about') ? 'active' : '')); ?>">
+                            <a href="<?php echo URL::to('about'); ?>"><i class="glyphicon glyphicon-about"></i>About</a>
+                        </li>
+                    <?php else: ?>
+                        <li class="<?php echo e((Request::is('dashboard') ? 'active' : '')); ?>">
+                            <a href="<?php echo URL::to('dashboard'); ?>">Thống Kê</a>
+                        </li>
+                        <li class="<?php echo e((Request::is('users') ? 'active' : '')); ?>">
+                            <a href="<?php echo URL::to('users/index'); ?>">Users</a>
+                        </li>
+                    <?php endif; ?>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" id="button-login" >
+                    <?php if(Auth::guest()): ?>
+                        <li class="<?php echo e((Request::is('auth/login') ? 'active' : '')); ?> " data-toggle="modal" data-target="#myModal"><a ><i
+                                    class="fa fa-sign-in"></i> Login</a></li>
+                    <?php else: ?>
+                    <li class="dropdown" id="user">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-expanded="false"><i ></i> <?php echo e(Auth::user()->name); ?> <i
+                                    class="glyphicon glyphicon-triangle-bottom"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            
+                            <li>
+                                <a href="<?php echo e(URL::to('users/' . Auth::user()->username)); ?>"><i class="fa fa-sign-out"></i> Ho So</a>
+                            </li>
+                             <li role="presentation" class="divider"></li>
+                            <li role="presentation" class="divider"></li>
+                            <li>
+                                <a href="<?php echo URL::to('auth/logout'); ?>"><i class="fa fa-sign-out"></i> Đăng xuất</a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php endif; ?>
+                </ul>
+            <?php echo $__env->yieldContent('firstcontent'); ?>
+            
+            </div>
+        </div>
+    </header>
+    </div>
+    </div>

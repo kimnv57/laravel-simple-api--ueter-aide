@@ -1,0 +1,38 @@
+<?php /* Web site Title */ ?>
+<?php $__env->startSection('title'); ?> <?php echo e(Lang::get("admin/users.users")); ?> :: @parent
+<?php $__env->stopSection(); ?>
+
+<?php /* Content */ ?>
+<?php $__env->startSection('main'); ?>
+    <div class="page-header">
+        <h3>
+            Món ăn
+            <div class="pull-right">
+                <div class="pull-right">
+                    <a href="<?php echo e(URL::to('admin/users/create')); ?>"
+                       class="btn btn-sm  btn-primary iframe"><span
+                                class="glyphicon glyphicon-plus-sign"></span> <?php echo e(Lang::get("admin/modal.new")); ?></a>
+                </div>
+            </div>
+        </h3>
+    </div>
+
+    <table id="table" class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th class="col-md-3"><?php echo e(Lang::get("admin/users.name")); ?></th>
+            <th class="col-md-3"><?php echo e(Lang::get("admin/users.email")); ?></th>
+            <th class="col-md-3"><?php echo e(Lang::get("admin/admin.created_at")); ?></th>
+            <th class="col-md-3"><?php echo e(Lang::get("admin/admin.action")); ?></th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+<?php $__env->stopSection(); ?>
+
+<?php /* Scripts */ ?>
+<?php $__env->startSection('scripts'); ?>
+    @parent
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

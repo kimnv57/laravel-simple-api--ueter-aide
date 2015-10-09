@@ -1,0 +1,14 @@
+<?php $__env->startSection('styles'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('firstcontent'); ?>
+ <?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<h2>this is contact</h2>
+ <?php $__env->stopSection(); ?>
+
+ <?php $__env->startSection('scripts'); ?>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
